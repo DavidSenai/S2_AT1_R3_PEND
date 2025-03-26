@@ -1,3 +1,4 @@
+/* Importação de fontes personalizadas */
 @font-face {
   font-family: "Copperplate";
   src: url("../fonts/Copperplate.otf");
@@ -8,12 +9,14 @@
   src: url("../fonts/JosefinSans.ttf");
 }
 
+/* Reset básico para remover margens e preenchimentos padrão */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+/* Estilização do body */
 body {
   height: 100vh;
   background-color: #434343;
@@ -23,6 +26,7 @@ body {
   align-items: center;
 }
 
+/* Container para o efeito de chuva */
 .container_rain {
   position: absolute;
   top: 0;
@@ -32,6 +36,7 @@ body {
   background-color: transparent;
 }
 
+/* Estilização das nuvens */
 .cloud {
   position: absolute;
   width: 250px;
@@ -40,6 +45,7 @@ body {
   filter: drop-shadow(2px 2px 20px #ffffff);
 }
 
+/* Posições das nuvens */
 .cloud:nth-child(1) {
   top: 2.5%;
   left: 5%;
@@ -57,6 +63,7 @@ body {
   left: 5%;
 }
 
+/* Efeito de gotas de chuva */
 .rain {
   background-color: #ffffff;
   width: 5px;
@@ -72,28 +79,27 @@ body {
   animation: animate 2s linear infinite;
 }
 
+/* Animação das gotas de chuva */
 @keyframes animate {
   0% {
     transform: translateY(0) scaleY(1);
     opacity: 1;
   }
-
   60% {
     transform: translateY(80vh) scaleY(1);
     opacity: 1;
   }
-
   80% {
     transform: translateY(80vh) scaleY(0.2);
     opacity: 0.5;
   }
-
   100% {
     transform: translateY(80vh) scaleY(0.2);
     opacity: 0;
   }
 }
 
+/* Container principal */
 .container {
   width: 80%;
   height: 80%;
@@ -110,6 +116,7 @@ body {
   overflow: hidden;
 }
 
+/* Container de imagem e texto informativo */
 .image_container {
   width: 100%;
   height: 100%;
@@ -125,6 +132,7 @@ body {
   justify-content: center;
 }
 
+/* Sobreposição escura na imagem */
 .image_container::before {
   content: "";
   position: absolute;
@@ -136,6 +144,7 @@ body {
   z-index: 1;
 }
 
+/* Textos dentro da image_container */
 .image_container h1,
 .image_container p {
   position: relative;
@@ -153,6 +162,7 @@ body {
   font-size: 13px;
 }
 
+/* Estilização do formulário */
 #cadastroForm {
   width: 80%;
   height: 90%;
@@ -164,12 +174,14 @@ body {
   gap: 30px;
 }
 
+/* Centralizar textos do formulário */
 #cadastroForm h1,
 #cadastroForm p {
   width: 100%;
   text-align: center;
 }
 
+/* Estilização dos títulos do formulário */
 #cadastroForm h1 {
   font-family: "JoseFins";
   font-size: 2em;
@@ -183,6 +195,7 @@ body {
   color: #000000;
 }
 
+/* Campos de entrada */
 #cadastroForm .input_data {
   position: relative;
   width: calc(50% - 15px);
@@ -191,10 +204,12 @@ body {
   color: #000000;
 }
 
+/* Último campo do formulário ocupa toda a largura */
 #cadastroForm .input_data:nth-child(8) {
   width: 100%;
 }
 
+/* Input dentro do formulário */
 #cadastroForm .input_data input {
   position: relative;
   z-index: 2;
@@ -213,6 +228,7 @@ body {
   color: #000000;
 }
 
+/* Label dos inputs */
 #cadastroForm .input_data label {
   font-family: "Copperplate";
   font-size: 11px;
@@ -225,16 +241,19 @@ body {
   color: #000000;
 }
 
+/* Animação dos labels ao digitar */
 #cadastroForm .input_data input:focus + label,
 #cadastroForm .input_data input:valid + label {
   top: -10%;
   left: 0;
 }
 
+/* Área do botão */
 #cadastroForm .btnArea {
   width: 100%;
 }
 
+/* Mensagem de erro */
 #cadastroForm .btnArea .msgError {
   margin-bottom: 10px;
   height: 25px;
@@ -242,6 +261,7 @@ body {
   font-style: italic;
 }
 
+/* Botão de envio */
 #cadastroForm .btnArea button {
   font-family: "Copperplate";
   border: 1px solid black;
@@ -254,6 +274,7 @@ body {
   letter-spacing: 1.5px;
 }
 
+/* Efeito de hover no botão */
 #cadastroForm .btnArea button:hover {
   background-color: transparent;
   border: 1px solid #000000;
@@ -261,29 +282,36 @@ body {
   transition: 0.7s;
 }
 
+/* Responsividade para telas menores */
 @media (max-width: 600px) {
   body {
     background-color: #434343;
   }
+
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: 30% 70%;
     height: 90%;
   }
+
   #cadastroForm {
     height: 100%;
     padding: 10px 0px;
   }
 
+  /* Esconder animação de chuva em telas pequenas */
   .container_rain {
     display: none;
   }
+
   #cadastroForm p {
     font-size: 15px;
   }
+
   #cadastroForm h1 {
     font-size: 25px;
   }
+
   .image_container p {
     font-size: 10px;
   }
